@@ -113,10 +113,12 @@
     <ClCompile Include="..\..\..\Second_Year_S2\AitBus2\ClearScreen.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Second_Year_S2\AitBus2\ClearScreen.h" />
     <ClInclude Include="Book.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
