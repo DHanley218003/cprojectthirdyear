@@ -1,4 +1,4 @@
-﻿Build started 14/11/2016 02:02:47.
+﻿Build started 01/12/2016 01:42:37.
      1>Project "C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\assignment\assignment.vcxproj" on node 2 (Build target(s)).
      1>Building with tools version "14.0".
      1>Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Program Files (x86)\MSBuild\14.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\assignment\assignment.vcxproj" (entry point):
@@ -146,7 +146,7 @@
        Done executing task "WriteLinesToFile".
        Using "Touch" task from assembly "Microsoft.Build.Tasks.Core, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "Touch"
-         Touching "x64\Debug\assignment.tlog\unsuccessfulbuild".
+         Creating "x64\Debug\assignment.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
        Done executing task "Touch".
      1>Done building target "InitializeBuildStatus" in project "assignment.vcxproj".
        Target "AssignProjectConfiguration" skipped. Previously built successfully.
@@ -248,15 +248,15 @@
          	C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\BOOK.OBJ
          	C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\MAIN.OBJ
          	C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\USER.OBJ
-         main.cpp will be compiled as output C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\MAIN.OBJ does not exist.
+         main.cpp will be compiled as C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\assignment\main.cpp was modified at 01/12/2016 01:41:02.
          Environment Variables passed to tool:
-           VS_UNICODE_OUTPUT=1880
+           VS_UNICODE_OUTPUT=1688
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt main.cpp
          Tracking command:
-         C:\Program Files (x86)\MSBuild\14.0\bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\14.0\bin\FileTracker32.dll" /i C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\assignment\x64\Debug\assignment.tlog /r C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\MAIN.CPP /b MSBuildConsole_CancelEventedcea60c8f0e45e695fcc4e0dc622efb  /c "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe"  /c /ZI /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt main.cpp
+         C:\Program Files (x86)\MSBuild\14.0\bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\14.0\bin\FileTracker32.dll" /i C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\assignment\x64\Debug\assignment.tlog /r C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\MAIN.CPP /b MSBuildConsole_CancelEvente478d17d688a4ca1916fb9ad7b3d342d  /c "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe"  /c /ZI /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt main.cpp
          main.cpp
-     1>c:\users\desktop\source\repos\cprojectthirdyear\assignment\assignment\main.cpp(179): warning C4715: 'passwordMatch': not all control paths return a value
-     1>c:\users\desktop\source\repos\cprojectthirdyear\assignment\assignment\main.cpp(307): warning C4715: 'searchForBook': not all control paths return a value
+     1>c:\users\desktop\source\repos\cprojectthirdyear\assignment\assignment\main.cpp(338): warning C4715: 'checkUser': not all control paths return a value
+     1>c:\users\desktop\source\repos\cprojectthirdyear\assignment\assignment\main.cpp(537): warning C4715: 'searchForBook': not all control paths return a value
        Done executing task "CL".
      1>Done building target "ClCompile" in project "assignment.vcxproj".
        Target "ManagedIncrementalBuildPostProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('..\..\..\Second_Year_S2\AitBus2\ClearScreen.cpp;Book.cpp;main.cpp;User.cpp' != '' and 'false' == 'True').
@@ -374,16 +374,43 @@
          	x64\Debug\assignment.tlog\link.write.1.tlog
          Read Tracking Logs:
          	x64\Debug\assignment.tlog\link.read.1.tlog
-         No output for C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\BOOK.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\CLEARSCREEN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\MAIN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\USER.OBJ was found in the tracking log; source compilation required.
-         No dependencies for output C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\BOOK.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\CLEARSCREEN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\MAIN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\USER.OBJ were found in the tracking log; source compilation required.
+         Outputs for C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\BOOK.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\CLEARSCREEN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\MAIN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\USER.OBJ:
+         	C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\X64\DEBUG\ASSIGNMENT.ILK
+         	C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\X64\DEBUG\ASSIGNMENT.EXE
+         	C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\X64\DEBUG\ASSIGNMENT.PDB
+         Inputs for C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\BOOK.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\CLEARSCREEN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\MAIN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\USER.OBJ:
+         	C:\WINDOWS\GLOBALIZATION\SORTING\SORTDEFAULT.NLS
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\KERNEL32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\USER32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\GDI32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\WINSPOOL.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\COMDLG32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\ADVAPI32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\SHELL32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\OLE32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\OLEAUT32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\UUID.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\ODBC32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\LIB\WINV6.3\UM\X64\ODBCCP32.LIB
+         	C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\CLEARSCREEN.OBJ
+         	C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\BOOK.OBJ
+         	C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\MAIN.OBJ
+         	C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\USER.OBJ
+         	C:\WINDOWS\SYSTEM32\TZRES.DLL
+         	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\VC\LIB\AMD64\MSVCRTD.LIB
+         	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\VC\LIB\AMD64\OLDNAMES.LIB
+         	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\VC\LIB\AMD64\MSVCPRTD.LIB
+         	C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\VC\LIB\AMD64\VCRUNTIMED.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.10240.0\UCRT\X64\UCRTD.LIB
+         Source compilation required: input C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\MAIN.OBJ is newer than output C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\X64\DEBUG\ASSIGNMENT.EXE.
          Environment Variables passed to tool:
-           VS_UNICODE_OUTPUT=1648
+           VS_UNICODE_OUTPUT=2904
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\x64\Debug\assignment.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG:FASTLINK /PDB:"C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\x64\Debug\assignment.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\x64\Debug\assignment.lib" /MACHINE:X64 x64\Debug\ClearScreen.obj
          x64\Debug\Book.obj
          x64\Debug\main.obj
          x64\Debug\User.obj
          Tracking command:
-         C:\Program Files (x86)\MSBuild\14.0\bin\Tracker.exe /a /d "C:\Program Files (x86)\MSBuild\14.0\bin\FileTracker32.dll" /i C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\assignment\x64\Debug\assignment.tlog /r "C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\BOOK.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\CLEARSCREEN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\MAIN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\USER.OBJ" /b MSBuildConsole_CancelEvent8fd0f8e69cb346678e98111452fb455a  /c "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe"  /ERRORREPORT:PROMPT /OUT:"C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\x64\Debug\assignment.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG:FASTLINK /PDB:"C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\x64\Debug\assignment.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\x64\Debug\assignment.lib" /MACHINE:X64 x64\Debug\ClearScreen.obj
+         C:\Program Files (x86)\MSBuild\14.0\bin\Tracker.exe /a /d "C:\Program Files (x86)\MSBuild\14.0\bin\FileTracker32.dll" /i C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\assignment\x64\Debug\assignment.tlog /r "C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\BOOK.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\CLEARSCREEN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\MAIN.OBJ|C:\USERS\DESKTOP\SOURCE\REPOS\CPROJECTTHIRDYEAR\ASSIGNMENT\ASSIGNMENT\X64\DEBUG\USER.OBJ" /b MSBuildConsole_CancelEvent46d9f5bf75a14f98b4408b093a2aa064  /c "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe"  /ERRORREPORT:PROMPT /OUT:"C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\x64\Debug\assignment.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG:FASTLINK /PDB:"C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\x64\Debug\assignment.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Desktop\Source\Repos\cprojectthirdyear\assignment\x64\Debug\assignment.lib" /MACHINE:X64 x64\Debug\ClearScreen.obj
          x64\Debug\Book.obj
          x64\Debug\main.obj
          x64\Debug\User.obj
@@ -522,4 +549,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.97
+Time Elapsed 00:00:00.65
