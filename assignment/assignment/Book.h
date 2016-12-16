@@ -5,7 +5,7 @@ class Book
 {
 public:
 
-	Book(std::string nameParam, std::string authorParam, unsigned int ISBNParam);
+	Book(std::string nameParam, std::string authorParam, long long int ISBNParam);
 
 	Book(void);
 
@@ -15,16 +15,16 @@ public:
 	//getters
 	std::string getName(void);
 	std::string getAuthor(void);
-	unsigned int getISBN(void);
+	long long int getISBN(void);
 	Book* getPreviousBook(void);
 	Book* getFirstBook(void);
 	Book* getNextBook(void);
-	bool isBookAvailable();
+	bool isBookAvailable(void);
 
 	//setters
 	void setName(std::string nameParam);
 	void setAuthor(std::string authorParam);
-	void setISBN(unsigned int ISBNParam);
+	void setISBN(long long int ISBNParam);
 	void setPreviousBook(Book *bookParam);
 	void setFirstBook(Book *bookParam);
 	void setNextBook(Book *bookParam);
@@ -33,9 +33,9 @@ public:
 private:
 	std::string name;
 	std::string author;
-	unsigned int ISBN;
-	Book *firstBook = NULL;
-	Book *previousBook = NULL;
-	Book *nextBook = NULL;
+	long long int ISBN;
+	Book *firstBook;
+	Book *previousBook;
+	Book *nextBook;
 	bool isAvailable;
 };

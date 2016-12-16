@@ -1,8 +1,9 @@
 #include "Book.h"
 
-Book::Book(std::string nameParam, std::string authorParam, unsigned int ISBNParam)
+Book::Book(std::string nameParam, std::string authorParam, long long int ISBNParam)
 {
 	name = nameParam; author = authorParam; ISBN = ISBNParam;
+	firstBook=NULL; previousBook=NULL; nextBook=NULL;
 }
 
 Book::Book(void)
@@ -10,6 +11,7 @@ Book::Book(void)
 	name = "NULL";
 	author = "NULL";
 	ISBN = 0;
+	firstBook=NULL; previousBook=NULL; nextBook=NULL;
 }
 
 void Book::insertAfter(Book *bookParam)
@@ -31,7 +33,7 @@ void Book::insertBefore(Book *bookParam)
 //getters
 std::string Book::getName(void) { return name; }
 std::string Book::getAuthor(void) { return author; }
-unsigned int Book::getISBN(void) { return ISBN; }
+long long int Book::getISBN(void) { return ISBN; }
 Book* Book::getFirstBook(void) { return firstBook; }
 Book* Book::getPreviousBook(void) { return previousBook; }
 Book* Book::getNextBook(void) { return nextBook; }
@@ -40,7 +42,7 @@ bool Book::isBookAvailable(void) { return isAvailable; }
 //setters
 void Book::setName(std::string nameParam) { name = nameParam; }
 void Book::setAuthor(std::string authorParam) { author = authorParam; }
-void Book::setISBN(unsigned int ISBNParam) { ISBN = ISBNParam; }
+void Book::setISBN(long long int ISBNParam) { ISBN = ISBNParam; }
 void Book::setFirstBook(Book *bookParam) { firstBook = bookParam; }
 void Book::setPreviousBook(Book *bookParam) { previousBook = bookParam; }
 void Book::setNextBook(Book *bookParam) { nextBook = bookParam; }

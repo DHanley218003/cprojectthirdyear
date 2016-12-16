@@ -11,14 +11,14 @@ Book* searchForBook(Book *firstBook);
 void  insertBook(Book *firstBook);
 Book* createBook(void);
 void  removeBook(Book *firstBook);
-void  changeUser();
+void  changeUser(void);
 bool  passwordMatch(std::string password, int line);
-void  guestMenu();
-void  adminMenu();
-void  userMenu();
+void  guestMenu(void);
+void  adminMenu(void);
+void  userMenu(void);
 bool  checkUser(std::string userName);
-void  removeUser();
-void  addUser();
+void  removeUser(void);
+void  addUser(void);
 
 int main(void)
 {
@@ -26,11 +26,12 @@ int main(void)
 	return 0;
 }
 
-void  removeUser()
+void removeUser(void)
 {
 	std::cout << "Please enter the user to remove:" << std::endl;
 	std::string user;
-	std::cin >> user;
+	std::cin.ignore();
+	getline(std::cin, user);
 	int line = 1;
 	std::fstream fileReader;
 	fileReader.open("users");
@@ -41,7 +42,7 @@ void  removeUser()
 		{
 			if (!temp.compare(user))
 			{
-				fileReader.put(*"");
+				//Remove line
 				break;
 			}
 			line++;
@@ -56,7 +57,7 @@ void  removeUser()
 			{
 				if (i == line)
 				{
-					fileReader.put(*"");
+					//remove line
 					break;
 				}
 				getline(fileReader, temp);
@@ -73,11 +74,12 @@ void  removeUser()
 		std::cout << "Cannot find user file! Please contact system administrator!" << std::endl;
 	}
 }
-void  addUser()
+void  addUser(void)
 {
 	std::cout << "Please enter the user to add:" << std::endl;
 	std::string input;
-	std::cin >> input;
+	std::cin.ignore();
+	getline(std::cin, input);
 	std::fstream fileWriter;
 	fileWriter.open("users", std::ios::app);
 	if (fileWriter.is_open())
@@ -88,7 +90,7 @@ void  addUser()
 		if (fileWriter.is_open())
 		{
 			std::cout << "Please enter the password for the user:" << std::endl;
-			std::cin >> input;
+			getline(std::cin, input);
 			fileWriter << input << std::endl;
 			fileWriter.close();
 		}
@@ -103,7 +105,7 @@ void  addUser()
 	}
 }
 
-void guestMenu()
+void guestMenu(void)
 {
 	Book *firstBook = new Book();
 	Book *temp;
@@ -111,7 +113,7 @@ void guestMenu()
 	unsigned int menu;
 	while (running)
 	{
-		std::cout << "Please select an option:\n1: Load file \n2: Print all books\n3: Search for a book\n4: Check availabilit of a book\n5: Change user/login\n0: Exit program" << std::endl;
+		std::cout << "Please select an option:\n1: Load file \n2: Print all books\n3: Search for a book\n4: Check availability of a book\n5: Change user/login\n0: Exit program" << std::endl;
 		std::cin >> menu;
 		if (std::cin)
 		{
@@ -153,7 +155,7 @@ void guestMenu()
 	}
 }
 
-void adminMenu()
+void adminMenu(void)
 {
 	Book *firstBook = new Book();
 	Book *temp;
@@ -204,9 +206,15 @@ void adminMenu()
 				ClearScreen();
 				temp = searchForBook(firstBook);
 				if (temp->isBookAvailable())
-					std::cout << "Book is available" << std::endl;
+				{
+					std::cout << "Book is checked out" << std::endl;
+					temp->setAvailability(false);
+				}
 				else
-					std::cout << "Book is not available" << std::endl;
+				{
+					std::cout << "Book is returned" << std::endl;
+					temp->setAvailability(true);
+				}
 				break;
 			case 9:
 				ClearScreen();
@@ -227,7 +235,7 @@ void adminMenu()
 	}
 }
 
-void userMenu()
+void userMenu(void)
 {
 	Book *firstBook = new Book();
 	Book *temp;
@@ -235,7 +243,7 @@ void userMenu()
 	unsigned int menu;
 	while (running)
 	{
-		std::cout << "Please select an option:\n1: Load file \n2: Save a book\n3: Print all books\n4: Save all books\n5: Search for a book\n6: Checkout/return a book\n7: Change user/login\n0: Exit program" << std::endl;
+		std::cout << "Please select an option:\n1: Load file\n2: Print all books\n3: Search for a book\n4: Checkout/return a book\n5: Change user/login\n0: Exit program" << std::endl;
 		std::cin >> menu;
 		if (std::cin)
 		{
@@ -248,33 +256,33 @@ void userMenu()
 				ClearScreen();
 				firstBook = loadFile();
 				break;
-			case 2:
-				ClearScreen();
-				saveABook(firstBook);
 				break;
-			case 3:
+			case 2:
 				ClearScreen();
 				printAllBooks(firstBook);
 				break;
-			case 4:
-				ClearScreen();
-				saveAllBooks(firstBook);
 				break;
-			case 5:
+			case 3:
 				ClearScreen();
 				temp = searchForBook(firstBook);
 				std::cout << "Name: " << temp->getName() << "\nAuthor: " << temp->getAuthor() << "\nISBN: " << temp->getISBN() << "\nIs available: " << temp->isBookAvailable() << std::endl;
 				delete temp;
 				break;
-			case 6:
+			case 4:
 				ClearScreen();
 				temp = searchForBook(firstBook);
 				if (temp->isBookAvailable())
-					std::cout << "Book is available" << std::endl;
+				{
+					std::cout << "Book is checked out" << std::endl;
+					temp->setAvailability(false);
+				}
 				else
-					std::cout << "Book is not available" << std::endl;
+				{
+					std::cout << "Book is returned" << std::endl;
+					temp->setAvailability(true);
+				}
 				break;
-			case 7:
+			case 5:
 				ClearScreen();
 				changeUser();
 				break;
@@ -287,7 +295,7 @@ void userMenu()
 
 bool checkUser(std::string userName)
 {
-	int line = 1;
+	int line = 0;
 	std::ifstream fileReader;
 	fileReader.open("users");
 	std::string temp;
@@ -296,7 +304,7 @@ bool checkUser(std::string userName)
 		bool match = false;
 		while (getline(fileReader, temp))
 		{
-			if (!temp.compare(userName))
+			if (temp == userName)
 			{
 				match = true;
 				break;
@@ -307,7 +315,7 @@ bool checkUser(std::string userName)
 
 		std::cout << "Please enter your password:" << std::endl;
 		std::string password;
-		std::cin >> password;
+		getline(std::cin, password);
 		if (passwordMatch(password, line))
 		{
 			if(match)
@@ -335,26 +343,30 @@ bool checkUser(std::string userName)
 		std::cout << "Cannot find user file! Please contact system administrator!" << std::endl;
 		return false;
 	}
+	return false;
 }
 
-void changeUser()
+void changeUser(void)
 {
 	//Implement login and either three seperate menus or disable options depending on user level
 	bool invusrpwd = true;
+	std::string guest = "guest";
+	std::string admin = "admin";
 	unsigned int loop;
 	while (invusrpwd)
 	{
 		std::cout << "Please enter your username to login, or enter guest for limited functionality" << std::endl;
 		std::string input;
-		std::cin >> input;
-		if (!input.compare("guest"))
+		std::cin.ignore();
+		std::getline(std::cin, input);
+		if (guest == input)
 		{
 			guestMenu();
 		}
-		else if (!input.compare("admin"))
+		else if (input == admin)
 		{
 			std::cout << "Please enter your password" << std::endl;
-			std::cin >> input;
+			getline(std::cin, input);
 			if (passwordMatch(input, 0))
 				adminMenu();
 			else
@@ -391,7 +403,7 @@ bool passwordMatch(std::string password, int line)
 		bool match = false;
 		while (getline(fileReader, temp))
 		{
-			if (!password.compare(temp) || count == line)
+			if (password == temp && count == line)
 			{
 				match = true;
 				break;
@@ -432,7 +444,7 @@ void insertBook(Book *firstBook)
 					temp = temp->getNextBook();
 				}
 				temp->insertAfter(createBook());
-				std::cout << "Book inserted at the emd!" << std::endl;
+				std::cout << "Book inserted at the end!" << std::endl;
 				break;
 			case 2:
 				ClearScreen();
@@ -462,10 +474,13 @@ Book* createBook(void)
 	std::string author;
 	unsigned int ISBN;
 	std::cout << "Please enter book title" << std::endl;
-	std::cin >> title;
+	std::cin.ignore();
+	getline(std::cin, title);
 	std::cout << "Please enter book author" << std::endl;
-	std::cin >> author;
+	std::cin.ignore();
+	getline(std::cin, author);
 	std::cout << "Please enter book ISBN" << std::endl;
+	std::cin.ignore();
 	std::cin >> ISBN;
 	return new Book(title, author, ISBN);
 }
@@ -502,38 +517,45 @@ Book* searchForBook(Book *firstBook)
 			case 1:
 				ClearScreen();
 				std::cout << "Please enter the books title" << std::endl;
-				std::cin >> title;
-				do 
+				std::cin.ignore();
+				getline(std::cin, title);
+				while (temp->getNextBook() != NULL)
 				{
 					if (title.compare(temp->getName()))
 						return temp;
-				} while (temp->getNextBook() != NULL);
+					temp = temp->getNextBook();
+				} 
 				break;
 			case 2:
 				ClearScreen();
 				std::cout << "Please enter the books author" << std::endl;
-				std::cin >> title;
-				do
+				std::cin.ignore();
+				getline(std::cin, title);
+				while (temp->getNextBook() != NULL)
 				{
 					if (title.compare(temp->getAuthor()))
 						return temp;
-				} while (temp->getNextBook() != NULL);
+					temp = temp->getNextBook();
+				}
 				break;
 			case 3:
 				ClearScreen();
 				std::cout << "Please enter the books ISBN" << std::endl;
+				std::cin.ignore();
 				std::cin >> menu;
-				do
+				while (temp->getNextBook() != NULL)
 				{
 					if (menu == temp->getISBN())
 						return temp;
-				} while (temp->getNextBook() != NULL);
+					temp = temp->getNextBook();
+				} 
 				break;
 			}
 		}
 		else
 			std::cout << "Please enter a number!" << std::endl;
 	}
+	return false;
 }
 
 Book * loadFile(void) // loads the file and returns pointer to the first Book
@@ -546,7 +568,8 @@ Book * loadFile(void) // loads the file and returns pointer to the first Book
 		std::ifstream fileReader;
 		std::cout << "Please enter file location." << std::endl;
 		std::string temp;
-		std::cin >> temp;
+		temp = "books";
+		//std::cin >> temp;
 		fileReader.open(temp);
 		if ( fileReader.is_open() )
 		{
@@ -555,7 +578,7 @@ Book * loadFile(void) // loads the file and returns pointer to the first Book
 			getline(fileReader, temp);
 			std::string authorParam = temp;
 			getline(fileReader, temp);
-			long ISBNParam = std::stoi(temp);
+			long long int ISBNParam = std::stoll(temp);
 			firstBook = new Book(nameParam, authorParam, ISBNParam);
 			previousBook = firstBook;
 			while ( getline(fileReader, temp) )
@@ -564,7 +587,7 @@ Book * loadFile(void) // loads the file and returns pointer to the first Book
 				getline(fileReader, temp);
 				authorParam = temp;
 				getline(fileReader, temp);
-				ISBNParam = std::stoi(temp);
+				ISBNParam = std::stoll(temp);
 				thisBook = new Book(nameParam, authorParam, ISBNParam);
 				thisBook->setFirstBook(firstBook);
 				thisBook->setPreviousBook(previousBook);
@@ -597,11 +620,12 @@ void saveABook(Book *currentBook)
 		std::ofstream fileSaver;
 		std::cout << "Please enter file location." << std::endl;
 		std::string temp;
-		std::cin >> temp;
+		temp = "books";
+		//std::cin >> temp;
 		fileSaver.open(temp);
 		if (fileSaver.is_open())
 		{
-			fileSaver << "Name: " << currentBook->getName() << "\nAuthor: " << currentBook->getAuthor() << "\nISBN: " << currentBook->getISBN() << std::endl;
+			fileSaver << "\n" << currentBook->getName() << "\n" << currentBook->getAuthor() << "\n"  << currentBook->getISBN() << std::endl;
 		}
 		else
 		{
@@ -626,15 +650,16 @@ void saveAllBooks(Book *firstBook)
 		std::ofstream fileSaver;
 		std::cout << "Please enter file location." << std::endl;
 		std::string temp;
-		std::cin >> temp;
+		temp = "books";
+		//std::cin >> temp;
 		fileSaver.open(temp);
 		if (fileSaver.is_open())
 		{
-			do
+			while (currentBook->getNextBook() != NULL)
 			{
-				fileSaver << "Name: " << currentBook->getName() << "\nAuthor: " << currentBook->getAuthor() << "\nISBN: " << currentBook->getISBN() << std::endl;
-			} while (currentBook->getNextBook() != NULL);
-			fileSaver << "Name: " << currentBook->getName() << "\nAuthor: " << currentBook->getAuthor() << "\nISBN: " << currentBook->getISBN() << std::endl;
+				fileSaver <<"\n" << currentBook->getName() << "\n" <<currentBook->getAuthor() << "\n" <<currentBook->getISBN() << std::endl;
+				currentBook = currentBook->getNextBook();
+			} 
 		}
 		else
 		{
@@ -654,11 +679,10 @@ void saveAllBooks(Book *firstBook)
 void printAllBooks(Book *firstBook)
 {
 	Book *currentBook = firstBook;
-	do
+	while (currentBook->getNextBook() != NULL)
 	{
 		std::cout << "Name: " << currentBook->getName() << "\nAuthor: " << currentBook->getAuthor() << "\nISBN: " << currentBook->getISBN() << std::endl << std::endl;
 		currentBook = currentBook->getNextBook();
-	} while (currentBook->getNextBook() != NULL);
-	std::cout << "Name: " << currentBook->getName() << "\nAuthor: " << currentBook->getAuthor() << "\nISBN: " << currentBook->getISBN() << std::endl << std::endl;
+	} 
 	return;
 }
